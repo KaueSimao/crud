@@ -1,1 +1,59 @@
-<p>estudante works!</p>
+<div class="row">
+    <div class="col-8 m-auto">
+      <form [formGroup]="formGroupEstudante">
+        <div class="mb-3">
+          <div class="display-4 text-center">
+            Cadastro de Estudantes
+          </div>
+          <label for="name" class="form-label">Nome:</label>
+          <input type="text" class="form-control" id="name"  formControlName="name" placeholder="Nome">
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email:</label>
+          <input type="email" class="form-control" id="email" formControlName="email" placeholder="Email">
+        </div>
+        <div class="mb-3">
+          <label for="rg" class="form-label">RG:</label>
+          <input type="number" class="form-control" id="rg" formControlName="rg" placeholder="RG">
+        </div>
+        <div class="mb-3">
+          <label for="telefone" class="form-label">Telefone:</label>
+          <input type="number" class="form-control" id="telefone" formControlName="telefone" placeholder="Telefone">
+        </div>
+        <div class="mb-3 text-center">
+          <button class="btn btn-outline-primary btn-lg" (click)="save()">Salvar</button>
+          <button class="btn btn-outline-warning btn-lg" (click)="clean()">Limpar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <form>
+    <div>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Email</th>
+            <th scope="col">RG</th>
+            <th scope="col">Telefone</th>
+            <th scope="col">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let estudante of estudantes">
+            <th scope="row">{{estudante.id}}</th>
+            <td>{{estudante.name}}</td>
+            <td>{{estudante.email}}</td>
+            <td>{{estudante.rg}}</td>
+            <td>{{estudante.telefone}}</td>
+            <td>
+              <button class="btn btn-outline-secondary" (click)="edit(estudante)">Editar</button>
+              <button class="btn btn-outline-danger" (click)="delete(estudante)">Excluir</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </form>
+  
